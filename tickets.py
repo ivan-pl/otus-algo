@@ -1,7 +1,8 @@
 import itertools
 
 
-def find(n: int) -> int:
+def find(n):
+    n = int(n)
     if n < 1:
         return 0
 
@@ -12,7 +13,7 @@ def find(n: int) -> int:
             count_arr.append([0] * j + sum_count_arr)
         sum_count_arr = [sum(i) for i in itertools.zip_longest(*count_arr, fillvalue=0)]
 
-    return sum([x * x for x in sum_count_arr])
+    return str(sum([x * x for x in sum_count_arr]))
 
 
 if __name__ == "__main__":
