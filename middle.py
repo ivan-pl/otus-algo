@@ -89,6 +89,19 @@ def count_primes(n):
     return count
 
 
+def eratosthene(n):
+    divs = [False for i in range(n)]
+    count = 0
+    limit = math.floor(math.sqrt(n))
+    for i in range(2, n):
+        if not divs[i]:
+            count += 1
+            if i <= limit:
+                for j in range(i * i, n, i):
+                    divs[j] = True
+    return count
+
+
 if __name__ == "__main__":
     print("Pow_b 3**2:", power_b(3, 2))
     print("Pow_b 4**3:", power_b(4, 3))
@@ -123,3 +136,7 @@ if __name__ == "__main__":
     print("count_primes 1:", count_primes(10))
     print("count_primes 2:", count_primes(100))
     print("count_primes 3:", count_primes(1000))
+
+    print("eratosthene 1:", eratosthene(10))
+    print("eratosthene 2:", eratosthene(100))
+    print("eratosthene 3:", eratosthene(1000))
