@@ -69,6 +69,26 @@ def fib_matrix(n):
     return Matrix.power([[1, 1], [1, 0]], n - 1)[0][0]
 
 
+def is_prime(num):
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    limit = math.floor(math.sqrt(num))
+    for i in range(3, limit + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+
+def count_primes(n):
+    count = 0
+    for i in range(2, n + 1):
+        if is_prime(i):
+            count += 1
+    return count
+
+
 if __name__ == "__main__":
     print("Pow_b 3**2:", power_b(3, 2))
     print("Pow_b 4**3:", power_b(4, 3))
@@ -99,3 +119,7 @@ if __name__ == "__main__":
     print("Fib_matrix 3:", fib_matrix(3))
     print("Fib_matrix 4:", fib_matrix(4))
     print("Fib_matrix 5:", fib_matrix(5))
+
+    print("count_primes 1:", count_primes(10))
+    print("count_primes 2:", count_primes(100))
+    print("count_primes 3:", count_primes(1000))
