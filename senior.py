@@ -1,6 +1,7 @@
 from tester import Tester
 from junior import pow_iter as power_iter, fib_iter, fib_rec, prime_count as jun_count_primes
 from middle import power_b, power_mul, fib_gold, fib_matrix, count_primes, eratosthene
+from time import time
 
 
 def test_power():
