@@ -2,17 +2,19 @@ import os
 
 
 class Tester:
-    def __init__(self, task, path, parse_in=None, parse_out=None, compare_results=None):
+    def __init__(self, task, path, parse_in=None, parse_out=None, compare_results=None, test_count=None):
         self.task = task
         self.path = path
         self.parse_in = parse_in
         self.parse_out = parse_out
         self.compare_results = compare_results
+        self.test_count = test_count
 
     def run_tests(self):
         test_counter = 0
         print(f"=== Start tests for {self.task.__name__} ===")
         while True:
+            if self.test_count and test_counter > self.test_count: break
             in_file = os.path.join(self.path, f'test.{test_counter}.in')
             out_file = os.path.join(self.path, f'test.{test_counter}.out')
             if not os.path.isfile(in_file) or not os.path.isfile(out_file):

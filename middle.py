@@ -90,14 +90,14 @@ def count_primes(n):
 
 
 def eratosthene(n):
-    divs = [False for i in range(n)]
+    divs = [False for i in range(n+1)]
     count = 0
     limit = math.floor(math.sqrt(n))
-    for i in range(2, n):
+    for i in range(2, n+1):
         if not divs[i]:
             count += 1
             if i <= limit:
-                for j in range(i * i, n, i):
+                for j in range(i * i, n+1, i):
                     divs[j] = True
     return count
 
