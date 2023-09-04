@@ -3,8 +3,9 @@ import numpy as np
 
 
 class BaseArray(ABC):
-    def __init__(self, d_type=str):
-        self.array = np.array([], d_type)
+    def __init__(self, dtype=str):
+        self._values = np.array([], dtype)
+        self._dtype = dtype
         self.size = 0
 
     @abstractmethod
