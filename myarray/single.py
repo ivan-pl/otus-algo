@@ -1,5 +1,5 @@
 import numpy as np
-from base import BaseArray
+from .base import BaseArray
 
 
 class SingleArray(BaseArray):
