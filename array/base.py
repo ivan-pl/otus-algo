@@ -9,9 +9,18 @@ class BaseArray(ABC):
         self.size = 0
 
     @abstractmethod
-    def add(self, item, index):
+    def add(self, item, index=None):
         pass
 
     @abstractmethod
     def remove(self, index):
         pass
+
+    def __repr__(self):
+        return str(self._values[:self.size])
+
+    def __getitem__(self, i):
+        return self._values[i]
+
+    def __len__(self):
+        return self.size

@@ -31,9 +31,6 @@ class SingleArray(BaseArray):
         self.size = new_size
         return self
 
-    def __repr__(self):
-        return str(self._values)
-
 
 if __name__ == "__main__":
     arr = SingleArray(int)
