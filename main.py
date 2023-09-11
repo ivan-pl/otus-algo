@@ -9,7 +9,7 @@ def test_arr(arr, total, comment=''):
     start_time = time.time()
     for i in range(total):
         index = random.randint(0, i)
-        arr.add(index)
+        arr.add(i, index)
     print(f'Add {arr.__class__.__name__} {comment} total={total}:\t{time.time() - start_time:.2f} seconds')
     start_time = time.time()
     for i in range(total - 1, -1, -1):
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     # for total in (1_000, 10_000, 100_000):
     #     vector_arr = VectorArray()
-    #     test_arr(vector_arr, total, "vector=100")
+    #     test_arr(vector_arr, total, "vector=10")
 
     # for total in (1_000, 10_000, 100_000):
     #     vector_arr = VectorArray(dtype=int, vector=100)
