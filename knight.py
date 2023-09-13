@@ -3,7 +3,7 @@ from tester import Tester
 import os
 
 
-def king(position: int):
+def knight(position: int):
     K = 1 << position
     Ka = 0xfefefefefefefefe & K
     Kb = 0xfcfcfcfcfcfcfcfc & K
@@ -27,5 +27,5 @@ if __name__ == "__main__":
         return tuple(int(s) for s in string.split('\n'))
 
 
-    tester = Tester(king, path, int, parse_out)
+    tester = Tester(knight, path, int, parse_out)
     tester.run_tests()
