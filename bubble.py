@@ -24,3 +24,6 @@ def bubble_sort_2(array):
 if __name__ == "__main__":
     for size in (100, 1_000, 10_000):
         timeit_sort(size, bubble_sort)
+
+    for size in (100, 1_000, 10_000):
+        timeit_sort(size, bubble_sort_2)
