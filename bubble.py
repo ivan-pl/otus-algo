@@ -1,4 +1,4 @@
-from numpy import random
+from utility import timeit_sort
 
 
 def bubble_sort(array):
@@ -22,7 +22,5 @@ def bubble_sort_2(array):
 
 
 if __name__ == "__main__":
-    random.seed(49)
-    arr = random.randint(100, size=100)
-    bubble_sort(arr)
-    print(arr)
+    for size in (100, 1_000, 10_000):
+        timeit_sort(size, bubble_sort)
