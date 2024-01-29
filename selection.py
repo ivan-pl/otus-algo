@@ -26,5 +26,5 @@ if __name__ == "__main__":
     print(selection_sort(array))
 
     print("TEST".center(10, '-'))
-    for size in [1000, 10_000, 100_000, 1_000_000]:
+    for size in [100, 1000, 10_000, 100_000, 1_000_000]:
         timeit_sort(size, selection_sort, size)
