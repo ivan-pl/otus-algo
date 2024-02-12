@@ -19,8 +19,16 @@ class HashTable():
     def _get_hash(self, key: Any) -> int:
         return hash(key) % self._table_length
 
-    def get(self):
-        pass
+    def get(self, key: Any) -> Any:
+        index = self._get_hash(key)
+        if not self._values[index]:
+            raise KeyError()
+
+        for node in self._values[index]:
+            if node.key == key:
+                return node.value
+
+        raise KeyError()
 
     def put(self, key: Any, value: Any) -> None:
         index = self._get_hash(key)
@@ -28,6 +36,9 @@ class HashTable():
         new_node = Node(key, value)
         if not self._values[index]:
             self._values[index] = [new_node]
+            self._cells_occupied += 1
+            if self._cells_occupied / self._table_length > self._load_factor:
+                self._rehash()
             return
 
         for i, node in enumerate(self._values[index]):
@@ -36,7 +47,19 @@ class HashTable():
                 return
         self._values[index].append(new_node)
 
-    def delete(self) -> None:
+    def delete(self, key: Any) -> None:
+        index = self._get_hash(key)
+        if not self._values[index]:
+            return
+
+        for i, node in enumerate(self._values[index]):
+            if node.key == key:
+                self._values[index].pop(i)
+                if not self._values[index]:
+                    self._cells_occupied -= 1
+                return
+
+    def _rehash(self):
         pass
 
 
