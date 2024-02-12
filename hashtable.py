@@ -69,12 +69,36 @@ class HashTable():
                 continue
 
             for node in linked_list:
-                self.put(**node)
+                self.put(*node)
+
+    def __str__(self) -> str:
+        return str(self._values)
 
 
 if __name__ == "__main__":
     ht = HashTable()
-    ht.put('asd', 1)
-    ht.put('qwe', 2)
-    ht.put('asd', 4)
+
+    print('-Check Put-')
+    ht.put(1, 'a')
+    ht.put(11, 'aa')
+    ht.put(2, 'b')
+    ht.put(3, 'c')
+    ht.put(4, 'd')
+    ht.put(44, 'dd')
+    ht.put(444, 'ddd')
+    print(ht)
+
+    print('-Check Delete-')
+    ht.delete(44)
+    ht.delete(1)
+    ht.delete(3)
+    print(ht)
+
+    print('-Check rehash-')
+    ht.put(3, 'c')
+    ht.put(5, 'e')
+    ht.put(6, 'f')
+    ht.put(7, 'g')
+    ht.put(8, 'h')
+    ht.put(9, 'k')
     print(ht)
