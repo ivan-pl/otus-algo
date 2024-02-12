@@ -1,10 +1,11 @@
 from typing import Sequence, Any
 
 
-def qsort(array: Sequence[Any]) -> None:
+def qsort(array: Sequence[Any]) -> Sequence[Any]:
     m = _split(array, 0, len(array) - 1)
     _qsort(array, 0, m - 1)
     _qsort(array, m, len(array) - 1)
+    return array
 
 
 def _split(array: Sequence[Any], left: int, right: int) -> int:
@@ -26,10 +27,16 @@ def _qsort(array: Sequence[Any], left: int, right: int) -> None:
 
 
 if __name__ == "__main__":
-    import random
+    from numpy import random
+    from utils import timeit_sort
+    import sys
 
-    random.seed(47)
-    arr = [random.randint(1, 20) for i in range(20)]
-    print(arr)
-    qsort(arr)
-    print(arr)
+    sys.setrecursionlimit(1_000_000)
+    print('SHOW RESULT'.center(10, '-'))
+    array = random.randint(0, 10, 10)
+    print(array)
+    print(qsort(array))
+
+    print("TEST".center(10, '-'))
+    for size in [100, 1000, 10_000, 100_000]:
+        timeit_sort(size, qsort, size)

@@ -1,9 +1,9 @@
 from numpy import random, arange
 import time
-from typing import Callable, Sequence
+from typing import Callable, Sequence, Any
 
 
-def timeit_sort(size: int, sort_func: Callable[[Sequence[int]], Sequence[int]], max_random_value: int = 100_000,
+def timeit_sort(size: int, sort_func: Callable[[Sequence[int]], Sequence[Any]], max_random_value: int = 100_000,
                 seed: int = 49) -> None:
     random.seed(seed)
 
