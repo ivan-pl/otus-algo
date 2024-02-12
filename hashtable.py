@@ -59,8 +59,17 @@ class HashTable():
                     self._cells_occupied -= 1
                 return
 
-    def _rehash(self):
-        pass
+    def _rehash(self) -> None:
+        self._table_length *= 2
+        self._cells_occupied = 0
+        old_values = self._values
+        self._values = np.empty(self._table_length, dtype=object)
+        for linked_list in old_values:
+            if not linked_list:
+                continue
+
+            for node in linked_list:
+                self.put(**node)
 
 
 if __name__ == "__main__":
