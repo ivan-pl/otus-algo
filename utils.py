@@ -1,6 +1,6 @@
 from numpy import random, arange
 import time
-from typing import Callable, Sequence, Any
+from typing import Callable, Sequence, Any, Optional
 import os
 
 
@@ -32,3 +32,13 @@ def generate_file(row_count: int, max_number: int, seed: int = 49) -> str:
             f.write(f'{r.randint(1, max_number)}\n')
 
     return path
+
+
+def timeit_sort_from_file(n: int, t: int, sort_func: Callable[[str, Optional[int]], None], delete_files=True,
+                          seed: int = 49) -> None:
+    file_path = generate_file(n, t, seed)
+    start_time = time.time()
+    sort_func(file_path, t)
+    print(f'{sort_func.__name__} RANDOM N={n!r} T={t!r} time: {time.time() - start_time:.3f} seconds')
+    if delete_files:
+        os.remove(file_path)
