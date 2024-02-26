@@ -12,7 +12,7 @@ def _find_min_ind(array: Sequence[int]) -> int:
     min_val = array[0]
     for i in range(1, len(array)):
         val = array[i]
-        if val > 0 and val < min_val:
+        if 0 < val < min_val:
             index, min_val = i, val
     return index if min_val > 0 else -1
 
