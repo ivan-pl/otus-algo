@@ -57,5 +57,6 @@ def esort1(path: str, t: int = 10) -> None:
 
 if __name__ == '__main__':
     for N in [100, 1_000, 10_000, 100_000, 1_000_000]:
-        for T in range(5, 20, 5):
+        for T in [10, 100, 1_000]:
             timeit_sort_from_file(N, T, esort1)
+            T *= 10
