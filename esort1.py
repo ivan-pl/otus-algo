@@ -2,7 +2,7 @@ from typing import Sequence, TextIO
 import tempfile
 import numpy as np
 
-from utils import generate_file, timeit_sort_from_file
+from utils import timeit_sort_from_file
 from msort import msort
 
 
