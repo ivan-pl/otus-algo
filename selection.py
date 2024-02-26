@@ -2,8 +2,8 @@ from typing import Sequence
 
 
 def find_max(arr: Sequence[int], to: int) -> int:
-    max_ind = arr[0]
-    for i in range(0, to + 1):
+    max_ind = 0
+    for i in range(1, to + 1):
         if arr[i] > arr[max_ind]:
             max_ind = i
     return max_ind
